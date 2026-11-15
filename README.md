@@ -55,6 +55,7 @@ Observações:
 - A tradução é automática, então algumas frases saem estranhas.
 - O Set envia a tradução para a base pública da MyMemory, então qualquer pessoa pode ver a contribuição.
 - O método Subjects está na documentação, mas pode não responder se isso acontecer, o site mostra a mensagem de erro.
+- O método Set responde com status aceito (202) e um identificador da contribuição, que o site trata como sucesso.
 
 ## Rotas do servidor
 
