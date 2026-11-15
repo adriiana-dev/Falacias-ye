@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Falácias Ye</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>FALÁCIAS YE</h1>
+    <p class="subtitulo">Frases do Kanye West traduzidas para português</p>
+  </header>
+
+  <main>
+    <section class="passos">
+      <h2>Como funciona</h2>
+      <ol>
+        <li>Clique em "Nova frase" para sortear uma frase em inglês.</li>
+        <li>A tradução aparece automaticamente logo abaixo.</li>
+        <li>Use "Ouvir" para escutar e "Favoritar" para guardar.</li>
+      </ol>
+    </section>
+
+    <section class="cartao">
+      <h2>Frase em inglês</h2>
+      <p id="fraseOriginal" class="frase">Clique em "Nova frase" para começar.</p>
+      <button id="botaoOuvirIngles" class="botao-secundario">Ouvir em inglês</button>
+
+      <h2>Tradução</h2>
+      <p id="fraseTraduzida" class="frase traducao">A tradução vai aparecer aqui.</p>
+      <button id="botaoOuvirPortugues" class="botao-secundario">Ouvir em português</button>
+
+      <p id="mensagem" class="mensagem"></p>
+
+      <div class="acoes">
+        <button id="botaoNovaFrase" class="botao-principal">Nova frase</button>
+        <button id="botaoFavoritar" class="botao-secundario">Favoritar</button>
+      </div>
+    </section>
+
+    <section class="favoritos">
+      <h2>Meus favoritos</h2>
+      <p id="listaVazia" class="mensagem">Nenhum favorito ainda.</p>
+      <ul id="listaFavoritos"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>APIs: Kanye REST e MyMemory Translation</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "falacias-ye",
+  "version": "1.0.0",
+  "description": "Frases do Kanye West traduzidas para portugues",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
