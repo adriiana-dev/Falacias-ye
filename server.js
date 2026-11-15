@@ -10,7 +10,7 @@ const PORTA = 3000;
 
 // faz o servidor entender JSON no corpo das requisições
 app.use(express.json());
-
+// libera a pasta public (html, css e js) para o navegador
 app.use(express.static(path.join(__dirname, 'public')));
 
 // lista de favoritos, fica na memória enquanto o servidor estiver ligado
@@ -42,7 +42,7 @@ app.get('/api/traduzir', async (req, res) => {
 
   // se não veio texto
   if (!texto) {
-    // responde com status pedido inválido (400)
+    // responde com status 400 (pedido inválido)
     return res.status(400).json({ erro: 'Envie o texto para traduzir.' });
   }
 
@@ -71,6 +71,7 @@ app.get('/api/traduzir', async (req, res) => {
 });
 
 // POST /api/contribuir: envia uma tradução melhor para a MyMemory (método set)
+// POST /api/contribuir: envia uma tradução melhor para a MyMemory (método set)
 app.post('/api/contribuir', async (req, res) => {
   // pega a frase em inglês e a tradução enviadas pelo site
   const { frase, traducao } = req.body;
@@ -89,11 +90,13 @@ app.post('/api/contribuir', async (req, res) => {
     const resposta = await fetch(url);
     // transforma a resposta em objeto
     const dados = await resposta.json();
+    // pega o status que a MyMemory mandou dentro da resposta
+    const status = parseInt(dados.responseStatus);
 
-    // se a API recusou a contribuição
-    if (!resposta.ok || (dados.responseStatus && Number(dados.responseStatus) !== 200)) {
+    // 200 e 202 aceito mostram que a contribuição foi recebida, qualquer outro valor é recusa
+    if (!resposta.ok || (status !== 200 && status !== 202)) {
       // responde com status 502 e a mensagem da API
-      return res.status(502).json({ erro: dados.responseDetails || 'A MyMemory recusou a tradução.' });
+      return res.status(502).json({ erro: 'A MyMemory recusou a tradução.' });
     }
 
     // avisa o site que deu certo
@@ -152,7 +155,7 @@ app.post('/api/favoritos', (req, res) => {
   proximoId++;
   // guarda o favorito na lista
   favoritos.push(novoFavorito);
-  // responde com status criado (201) e o favorito salvo
+  // responde com status criado  (201) e o favorito salvo
   res.status(201).json(novoFavorito);
 });
 
@@ -184,7 +187,7 @@ app.delete('/api/favoritos/:id', (req, res) => {
 
   // se não achou
   if (posicao === -1) {
-    // responde com status  não encontrado (404)
+    // responde com status não encontrado (404)
     return res.status(404).json({ erro: 'Favorito não encontrado.' });
   }
 
