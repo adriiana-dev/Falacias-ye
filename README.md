@@ -1,11 +1,11 @@
 # Falácias Ye
 
-Site que sorteia uma frase do Kanye West em inglês e mostra a tradução em português também dá para ouvir as frases, guardar as favoritas, sugerir uma tradução melhor e ver os assuntos da MyMemory.
+Site que sorteia uma frase do Kanye West em inglês e mostra a tradução em português também dá para ouvir as frases, guardar as favoritas e sugerir uma tradução melhor.
 
 
 ## Como funciona
 
-1. O site pede uma frase para o nosso servidor.
+1. O site pede uma frase para o servidor.
 2. O servidor busca a frase na **Kanye REST**.
 3. O site pede a tradução, e o servidor envia o texto para a **MyMemory Translation**.
 4. A página mostra a frase e a tradução o botão "Ouvir" lê o texto com a voz do navegador.
